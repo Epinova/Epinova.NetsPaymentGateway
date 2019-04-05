@@ -1,11 +1,10 @@
 using System.Xml.Serialization;
-using Epinova.Infrastructure;
 
 namespace Epinova.NetsPaymentGateway
 {
     /// <remarks>DTO has to be public to enable XmlSerializer's deserialize support.</remarks>
     [XmlRoot("PaymentInfo")]
-    public class QueryResponseDto : ServiceResponseBase
+    public class QueryResponseDto : ResponseDtoBase
     {
         public QueryCardInformationDto CardInformation { get; set; }
 

@@ -13,15 +13,9 @@ namespace Epinova.NetsPaymentGateway
 {
     internal class PaymentGatewayService : RestServiceBase, IPaymentGatewayService
     {
-        internal static HttpClient Client;
+        internal static HttpClient Client = new HttpClient();
         private readonly ILogger _log;
         private readonly IMapper _mapper;
-
-
-        static PaymentGatewayService()
-        {
-            Client = new HttpClient();
-        }
 
         public PaymentGatewayService(ILogger log, IMapper mapper) : base(log)
         {
@@ -116,9 +110,9 @@ namespace Epinova.NetsPaymentGateway
 
             QueryResponseDto dto = await ParseXml<QueryResponseDto>(responseMessage);
 
-            if (dto.ErrorList.Any())
+            if (dto.HasError)
             {
-                _log.Error(new { message = "Status query failed.", transactionId, dto.ErrorList });
+                _log.Error(new { message = "Status query failed.", transactionId, dto.ErrorMessage });
                 return null;
             }
 
@@ -170,9 +164,9 @@ namespace Epinova.NetsPaymentGateway
 
             RegisterResponseDto dto = await ParseXml<RegisterResponseDto>(responseMessage);
 
-            if (dto.ErrorList.Any())
+            if (dto.HasError)
             {
-                _log.Error(new { message = "Register failed.", request, dto.ErrorList });
+                _log.Error(new { message = "Register failed.", request, dto.ErrorMessage });
                 return null;
             }
 
@@ -217,9 +211,9 @@ namespace Epinova.NetsPaymentGateway
 
             ProcessResponseDto dto = await ParseXml<ProcessResponseDto>(responseMessage);
 
-            if (dto.ErrorList.Any())
+            if (dto.HasError)
             {
-                _log.Error(new { message = $"Operation '{operation}' failed.", transactionId, amount, dto.ErrorList });
+                _log.Error(new { message = $"Operation '{operation}' failed.", transactionId, amount, dto.ErrorMessage });
                 return false;
             }
 
