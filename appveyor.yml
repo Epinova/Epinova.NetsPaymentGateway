@@ -27,7 +27,7 @@ build:
   publish_nuget: true
   verbosity: minimal
 artifacts:
-  - path: %CD%\xunit.test.results.xml
+  - path: '%CD%\xunit.test.results.xml'
 
 test_script:
 - cmd: '%xunit20%\xunit.console tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -notrait "category=Integration" -notrait "category=Manual" -appveyor -xml %CD%\xunit.test.results.xml'
