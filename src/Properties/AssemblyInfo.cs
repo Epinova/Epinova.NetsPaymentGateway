@@ -12,9 +12,9 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: InternalsVisibleTo("Epinova.NetsPaymentGatewayTests")]
 [assembly: Guid("3be24e50-037f-433a-9f65-c08a98496e41")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyInformationalVersion("Release 1.0.0.0 turbo-funicular")]
+[assembly: AssemblyVersion("11.0.0.0")]
+[assembly: AssemblyFileVersion("11.0.0.0")]
+[assembly: AssemblyInformationalVersion("11.0.0.0")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else

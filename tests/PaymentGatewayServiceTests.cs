@@ -11,6 +11,7 @@ using Xunit;
 
 namespace Epinova.NetsPaymentGatewayTests
 {
+    [Collection("Static http client mock")]
     public class PaymentGatewayServiceTests
     {
         private readonly Mock<ILogger> _logMock;
