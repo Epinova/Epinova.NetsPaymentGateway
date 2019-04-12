@@ -28,7 +28,7 @@ build:
   verbosity: minimal
 
 test_script:
-- cmd: '%xunit20%\xunit.console "**\*Tests.dll" -notrait "category=Integration" -notrait "category=Manual" -appveyor -xml xunit.test.results.xml'
+- cmd: '%xunit20%\xunit.console tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -notrait "category=Integration" -notrait "category=Manual" -appveyor -xml xunit.test.results.xml'
 #test:
 #  categories:
 #    except:
