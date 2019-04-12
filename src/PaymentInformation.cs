@@ -18,7 +18,5 @@ namespace Epinova.NetsPaymentGateway
         public DateTime Timestamp { get; set; }
         public decimal TotalAmount { get; set; }
         public string TransactionId { get; set; }
-
-        //TODO: MN-299 - må utvides med info om feilet transaksjon. --tarjei
     }
 }
