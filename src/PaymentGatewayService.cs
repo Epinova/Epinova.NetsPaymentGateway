@@ -70,12 +70,12 @@ namespace Epinova.NetsPaymentGateway
             return await ProcessAsync(merchant, "ANNUL", transactionId);
         }
 
-        public async Task<bool> CaptureAsync(MerchantInfo merchant, string transactionId, decimal? amount)
+        public async Task<bool> CaptureAsync(MerchantInfo merchant, string transactionId, decimal? amount = null)
         {
             return await ProcessAsync(merchant, "CAPTURE", transactionId, amount);
         }
 
-        public async Task<bool> CreditAsync(MerchantInfo merchant, string transactionId, decimal? amount)
+        public async Task<bool> CreditAsync(MerchantInfo merchant, string transactionId, decimal? amount = null)
         {
             return await ProcessAsync(merchant, "CREDIT", transactionId, amount);
         }
