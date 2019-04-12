@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmountHelperTests.cs" />
+    <Compile Include="ResponseDtoBaseTests.cs" />
     <Compile Include="LoggerMockExtensions.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="PaymentGatewayMappingProfileTests.cs" />
