@@ -26,22 +26,16 @@ pull_requests:
 build:
   publish_nuget: true
   verbosity: minimal
-artifacts:
-  - path: '**\xunit*.xml'
 
 test_script:
-- cmd: 'OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -xml xunit.test.results.xml -appveyor" -output:xunit.opencover.xml -coverbytest:*.Tests.dll'
-
+- cmd: '%xunit20%\xunit.console tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -notrait "category=Integration" -notrait "category=Manual" -appveyor -xml xunit.test.results.xml'
 #test:
 #  categories:
 #    except:
 #    - Integration
 #    - Manual
-
 cache:
   - packages -> **\packages.config
-  - '%ProgramData%\chocolatey\lib\'
-  
 deploy:
   provider: NuGet
   api_key:
@@ -63,6 +57,6 @@ for:
 
   before_build:
   - cmd: nuget restore
-  - cmd: IF DEFINED sonarcloudkey choco install sonarscanner-msbuild-net46 opencover.portable -y && SonarScanner.MSBuild.exe begin /k:"%sonarcloudproj%" /d:"sonar.host.url=https://sonarcloud.io" /o:"%sonarcloudorg%" /d:"sonar.login=%sonarcloudkey%" /d:sonar.cs.opencover.reportsPaths="%APPVEYOR_BUILD_FOLDER%\xunit.opencover.xml" /d:sonar.cs.xunit.reportsPaths="%APPVEYOR_BUILD_FOLDER%\xunit.test.results.xml"
+  - cmd: IF DEFINED sonarcloudkey choco install "sonarscanner-msbuild-net46" -y && SonarScanner.MSBuild.exe begin /k:"%sonarcloudproj%" /d:"sonar.host.url=https://sonarcloud.io" /o:"%sonarcloudorg%" /d:"sonar.login=%sonarcloudkey%" /d:sonar.cs.xunit.reportsPaths="%CD%\xunit.test.results.xml"
   after_test:
   - cmd: IF DEFINED sonarcloudkey SonarScanner.MSBuild.exe end /d:"sonar.login=%sonarcloudkey%"
