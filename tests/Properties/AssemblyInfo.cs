@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using Xunit;
 
 [assembly: AssemblyTitle("Epinova.NetsPaymentGatewayTests")]
 [assembly: AssemblyDescription("Testing Epinova's take on a NETS payment gateway API")]
