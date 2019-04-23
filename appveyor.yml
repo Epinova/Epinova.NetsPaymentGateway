@@ -31,11 +31,9 @@ build:
 artifacts:
   - path: '**\xunit.*.results.xml'
 test_script:
-- cmd: 'OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -xml xunit.test.results.xml -appveyor" -output:xunit.opencover.results.xml -coverbytest:*.Tests.dll'
+- cmd: 'OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -xml xunit.test.results.xml -appveyor" -output:%APPVEYOR_BUILD_FOLDER%\xunit.opencover.results.xml -coverbytest:*.Tests.dll'
 cache:
   - packages -> **\packages.config
-  - '%ProgramData%\chocolatey\lib\'
-
 deploy:
   provider: NuGet
   api_key:
