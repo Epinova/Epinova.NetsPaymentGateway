@@ -28,8 +28,6 @@ pull_requests:
 build:
   publish_nuget: true
   verbosity: minimal
-artifacts:
-  - path: '**\xunit.*.results.xml'
 test_script:
 - cmd: 'OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"tests\bin\Release\Epinova.NetsPaymentGatewayTests.dll -noshadow -xml xunit.test.results.xml -appveyor" -output:%APPVEYOR_BUILD_FOLDER%\xunit.opencover.results.xml -coverbytest:*Tests.dll'
 cache:
