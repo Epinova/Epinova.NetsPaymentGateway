@@ -19,4 +19,7 @@
       <dependency id="EPiServer.Framework" version="[11.1, 12)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\$id$.pdb" target="lib\net462\" />
+  </files>
 </package>
