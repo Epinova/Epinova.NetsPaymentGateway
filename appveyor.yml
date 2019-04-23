@@ -5,7 +5,7 @@ configuration: Release
 platform: Any CPU
 environment:
   sonarcloudorg: epinova
-  sonarcloudproj: Epinova_Epinova.NetsPaymentGateway
+  sonarcloudproj: Epinova.NetsPaymentGateway
   sonarcloudkey:
     secure: UNVYqsTOKLqiO3wh4+Hk3WQkYIRXdTVIDivcfZdWr6jI86GsV7mSk/+AWHS6yw9w
 init:
