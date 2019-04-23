@@ -7,7 +7,7 @@ environment:
   sonarcloudorg: epinova
   sonarcloudproj: Epinova.NetsPaymentGateway
   sonarcloudkey:
-    secure: UNVYqsTOKLqiO3wh4+Hk3WQkYIRXdTVIDivcfZdWr6jI86GsV7mSk/+AWHS6yw9w
+    secure: 0VvcxYCPLglmyB87e5B1vRk0nHq8KUX0ND/qLkCs1RaGULzo1Q+XPHOZgioTbEPZ
 init:
 - cmd: nuget sources add -Name Episerver -Source http://nuget.episerver.com/feed/packages.svc/
 assembly_info:
