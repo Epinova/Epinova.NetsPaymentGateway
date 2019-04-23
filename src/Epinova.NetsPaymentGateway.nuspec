@@ -20,6 +20,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\$id$.pdb" target="lib\net462\" />
+    <file src="bin\Release\$id$.pdb" target="lib\net462\" />
   </files>
 </package>
