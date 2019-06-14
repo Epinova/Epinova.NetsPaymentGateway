@@ -27,7 +27,7 @@ public class NetsProcessor : IPaymentGatewayProcessor
 
     public async Task<PaymentSetupModel> InitializePaymentAsync(string orderNumber, decimal totalAmount)
     {
-	    var request = new RegisterRequest
+        var request = new RegisterRequest
         {
             Amount = totalAmount,
             CurrencyCode = "NOK",
@@ -35,7 +35,7 @@ public class NetsProcessor : IPaymentGatewayProcessor
             OrderNumber = orderNumber,
             RedirectUrl = new Uri($"https://absolute.url/to/your/site/NetsCallBack?orderNumber={orderNumber}")
         };
-		//Send in specific payment method, or leave blank to use default payment methods defined in MerchantInfo model.
+        //Send in specific payment method, or leave blank to use default payment methods defined in MerchantInfo model.
         //request.PaymentMethods.Add("Vipps");
 
         RegisterResponse response = await _paymentGateway.RegisterAsync(GetMerchantInfo(), request);
