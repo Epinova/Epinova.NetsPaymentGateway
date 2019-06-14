@@ -11,7 +11,7 @@ using EPiServer.Logging;
 
 namespace Epinova.NetsPaymentGateway
 {
-    internal class PaymentGatewayService : RestServiceBase, IPaymentGatewayService
+    public class PaymentGatewayService : RestServiceBase, IPaymentGatewayService
     {
         internal static HttpClient Client = new HttpClient();
         private readonly ILogger _log;
