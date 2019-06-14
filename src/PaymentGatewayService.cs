@@ -11,7 +11,7 @@ using EPiServer.Logging;
 
 namespace Epinova.NetsPaymentGateway
 {
-    internal class PaymentGatewayService : RestServiceBase, IPaymentGatewayService
+    public class PaymentGatewayService : RestServiceBase, IPaymentGatewayService
     {
         internal static HttpClient Client = new HttpClient();
         private readonly ILogger _log;
@@ -22,8 +22,6 @@ namespace Epinova.NetsPaymentGateway
             _log = log;
             _mapper = mapper;
         }
-
-        public override string ServiceName => nameof(PaymentGatewayService);
 
         public async Task<bool> AuthorizeAsync(MerchantInfo merchant, string transactionId)
         {
@@ -100,7 +98,7 @@ namespace Epinova.NetsPaymentGateway
             string baseAddress = GetBaseAddress(merchant);
             string url = $"{baseAddress}Netaxept/Query.aspx?{BuildQueryString(parameters)}";
 
-            HttpResponseMessage responseMessage = await Call(() => Client.GetAsync(url));
+            HttpResponseMessage responseMessage = await CallAsync(() => Client.GetAsync(url));
 
             if (responseMessage == null)
             {
@@ -108,7 +106,7 @@ namespace Epinova.NetsPaymentGateway
                 return null;
             }
 
-            QueryResponseDto dto = await ParseXml<QueryResponseDto>(responseMessage);
+            QueryResponseDto dto = await ParseXmlAsync<QueryResponseDto>(responseMessage);
 
             if (dto.HasError)
             {
@@ -154,7 +152,7 @@ namespace Epinova.NetsPaymentGateway
             string baseAddress = GetBaseAddress(merchant);
             string url = $"{baseAddress}Netaxept/Register.aspx?{BuildQueryString(parameters)}";
 
-            HttpResponseMessage responseMessage = await Call(() => Client.GetAsync(url));
+            HttpResponseMessage responseMessage = await CallAsync(() => Client.GetAsync(url));
 
             if (responseMessage == null)
             {
@@ -162,7 +160,7 @@ namespace Epinova.NetsPaymentGateway
                 return null;
             }
 
-            RegisterResponseDto dto = await ParseXml<RegisterResponseDto>(responseMessage);
+            RegisterResponseDto dto = await ParseXmlAsync<RegisterResponseDto>(responseMessage);
 
             if (dto.HasError)
             {
@@ -201,7 +199,7 @@ namespace Epinova.NetsPaymentGateway
 
             string url = $"{GetBaseAddress(merchant)}Netaxept/Process.aspx?{BuildQueryString(parameters)}";
 
-            HttpResponseMessage responseMessage = await Call(() => Client.GetAsync(url));
+            HttpResponseMessage responseMessage = await CallAsync(() => Client.GetAsync(url));
 
             if (responseMessage == null)
             {
@@ -209,7 +207,7 @@ namespace Epinova.NetsPaymentGateway
                 return false;
             }
 
-            ProcessResponseDto dto = await ParseXml<ProcessResponseDto>(responseMessage);
+            ProcessResponseDto dto = await ParseXmlAsync<ProcessResponseDto>(responseMessage);
 
             if (dto.HasError)
             {
