@@ -102,8 +102,9 @@ you can manually set up [PaymentGatewayService](src/PaymentGatewayService.cs) fo
 
 ### Prerequisites
 
+* [Epinova.Infrastructure](https://github.com/Epinova/Epinova.Infrastructure) >= v11.1.0.95.
 * [EPiServer.Framework](http://www.episerver.com/web-content-management) >= v11.1 for logging purposes.
-* [Automapper](https://github.com/AutoMapper/AutoMapper) >= v8.0 for mapping models.
+* [Automapper](https://github.com/AutoMapper/AutoMapper) >= v9.0 for mapping models.
 * [StructureMap](http://structuremap.github.io/) >= v4.7 for registering service contract.
 
 ### Installing
