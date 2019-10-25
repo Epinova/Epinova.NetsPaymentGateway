@@ -25,7 +25,7 @@ namespace Epinova.NetsPaymentGateway
 
         public async Task<bool> AuthorizeAsync(MerchantInfo merchant, string transactionId)
         {
-            var isRetry = false;
+            bool isRetry = false;
             while (true)
             {
                 _log.Debug($"hitting AUTH {transactionId}{(isRetry ? " second time" : "")}");

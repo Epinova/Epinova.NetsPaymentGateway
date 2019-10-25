@@ -11,7 +11,7 @@ namespace Epinova.NetsPaymentGateway
 
         public static string Inflate(decimal amount)
         {
-            return Convert.ToString((long) Math.Round(amount * 100, 0, MidpointRounding.AwayFromZero));
+            return Convert.ToString((long)Math.Round(amount * 100, 0, MidpointRounding.AwayFromZero));
         }
     }
 }
