@@ -1,14 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epinova.NetsPaymentGateway", "src\Epinova.NetsPaymentGateway.csproj", "{3BE24E50-037F-433A-9F65-C08A98496E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epinova.NetsPaymentGateway", "src\Epinova.NetsPaymentGateway.csproj", "{3BE24E50-037F-433A-9F65-C08A98496E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epinova.NetsPaymentGatewayTests", "tests\Epinova.NetsPaymentGatewayTests.csproj", "{C938611F-622E-42AD-8FA9-874F3E1DCAF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Epinova.NetsPaymentGatewayTests", "tests\Epinova.NetsPaymentGatewayTests.csproj", "{C938611F-622E-42AD-8FA9-874F3E1DCAF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{F39C5504-8D00-4942-841A-317B91D738F0}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		LICENSE = LICENSE
